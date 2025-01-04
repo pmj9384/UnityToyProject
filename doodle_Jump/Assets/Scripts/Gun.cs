@@ -68,11 +68,6 @@ public class Gun : MonoBehaviour
 
     private void ShootBullet()
     {
-        if (bulletPrefab == null)
-        {
-            Debug.LogError("Bullet Prefab is not assigned!");
-            return;
-        }
 
         // Object Pool에서 총알 가져오기
         GameObject bullet = bulletPool.Get();

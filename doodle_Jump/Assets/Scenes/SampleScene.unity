@@ -1046,7 +1046,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 50
-  damage: 25
+  damage: 50
   lifeTime: 3
 --- !u!1 &1426537759 stripped
 GameObject:
@@ -1827,6 +1827,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1221073517169446405, guid: e1217625c2a4247b683db8d505d1b3c2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7068826202093457456}
+    - targetCorrespondingSourceObject: {fileID: 1221073517169446405, guid: e1217625c2a4247b683db8d505d1b3c2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7068826202093457460}
   m_SourcePrefab: {fileID: 100100000, guid: e1217625c2a4247b683db8d505d1b3c2, type: 3}
 --- !u!1 &1383181902094881546 stripped
 GameObject:
@@ -2178,6 +2181,19 @@ MonoBehaviour:
   deathClip: {fileID: 0}
   hitSound: {fileID: 0}
   fallLimit: -10
+--- !u!114 &7068826202093457460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064923395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95a593a2c720d423daa75f689b423d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 100
 --- !u!1001 &7172933867077787542
 PrefabInstance:
   m_ObjectHideFlags: 0

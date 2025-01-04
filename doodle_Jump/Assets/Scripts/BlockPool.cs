@@ -10,11 +10,6 @@ public class BlockPool : MonoBehaviour
 
     private void Start()
     {
-        if (blockPrefabs == null || blockPrefabs.Length == 0)
-        {
-            Debug.LogError("No block prefabs assigned to BlockPool!");
-            return;
-        }
 
         // Pool 생성
         for (int i = 0; i < poolSize; i++)
@@ -41,19 +36,13 @@ public class BlockPool : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Pool is empty. Instantiating a new block.");
-            return InstantiateRandomBlock();
+        
+        return InstantiateRandomBlock();  // 반환됨
         }
     }
 
     public void ReturnBlock(GameObject block)
     {
-        if (block == null)
-        {
-            Debug.LogError("Attempted to return a null block to the pool!");
-            return;
-        }
-
         block.SetActive(false);
         pool.Enqueue(block);
     }

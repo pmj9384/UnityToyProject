@@ -24,45 +24,34 @@ public class PlayerHealth : LivingEntity
         movement = GetComponent<PlayerMovement>();
         shooter = GetComponent<PlayerShooter>();
     }
-    protected override void OnEnable()
+protected override void OnEnable()
+{
+    base.OnEnable();  
+    startYPosition = transform.position.y;
+    movement.enabled = true;  
+    shooter.enabled = true;   
+}
+
+public override void OnDamage(float damage, Vector3 hitPoint, Vector3 hitNormal)
+{
+    base.OnDamage(damage, hitPoint, hitNormal);
+    if (!IsDead)
     {
-        base.OnEnable();
-
-        // healthSlider.gameObject.SetActive(true);
- 
-        // healthSlider.maxValue = maxHp;
-        // healthSlider.minValue = 0f;
-        // healthSlider.value = Hp;
-
-        startYPosition = transform.position.y;
-        movement.enabled = true;
-        shooter.enabled = true;
+        audioSource.PlayOneShot(hitSound); 
     }
+}
 
-    public override void OnDamage(float damage, Vector3 hitPoint, Vector3 hitNormal)
-    {
-        base.OnDamage(damage, hitPoint, hitNormal);
-        // healthSlider.value = Hp;
-        if (!IsDead)
-        {
-            audioSource.PlayOneShot(hitSound);
-        }
-    }
-    protected override void Die()
-    {
-        base.Die();
+protected override void Die()
+{
+    base.Die();  
+    audioSource.PlayOneShot(deathClip); 
+    movement.enabled = false;  
+    shooter.enabled = false;   
 
-        // healthSlider.gameObject.SetActive(false);
-        // animator.SetTrigger("Die");
+    TextManager.Instance.ShowGameOver();  
+    Time.timeScale = 0f;  
+}
 
-        audioSource.PlayOneShot(deathClip);
-        movement.enabled = false;
-        shooter.enabled = false;
-
-        TextManager.Instance.ShowGameOver();
-
-        Time.timeScale = 0f; 
-    }
     public override void AddHp(float add)
     {
         base.AddHp(add);
@@ -78,7 +67,7 @@ public class PlayerHealth : LivingEntity
 
         if (transform.position.y < startYPosition + fallLimit && !IsDead)
         {
-            Die();  // Y축 아래로 떨어졌을 때 사망 처리
+            Die();  
         }
         if (Input.GetKeyDown(KeyCode.Return))
         {
@@ -101,7 +90,7 @@ public class PlayerHealth : LivingEntity
 
         if (!IsDead && other.CompareTag("Enemy"))
         {
-            Die();  // 적과 충돌하면 사망
+            Die();  
         }
     }
 
@@ -109,14 +98,14 @@ public class PlayerHealth : LivingEntity
     {   
         if (isPaused)
         {
-        Time.timeScale = 1f;  // 게임 재개
-        TextManager.Instance.HidePause();  // Pause 텍스트 비활성화
+        Time.timeScale = 1f;  
+        TextManager.Instance.HidePause();
         isPaused = false;
         }
         else
         {
-        Time.timeScale = 0f;  // 게임 멈춤
-        TextManager.Instance.ShowPause();  // Pause 텍스트 활성화
+        Time.timeScale = 0f; 
+        TextManager.Instance.ShowPause();  
         isPaused = true;
         }
     }
@@ -124,7 +113,7 @@ public class PlayerHealth : LivingEntity
 
     public void RestartGame()
     {
-        Time.timeScale = 1f;  // 게임 재개
+        Time.timeScale = 1f; 
         UnityEngine.SceneManagement.SceneManager.LoadScene(SceneManager.GetActiveScene().name);  // 현재 씬 다시 로드
     }
 

@@ -33,7 +33,7 @@ public class Enemy : LivingEntity
     protected override void Die()
     {
         base.Die(); // 기본 사망 처리
-        Destroy(gameObject, 2f); // 2초 후 오브젝트 제거
+        Destroy(gameObject, 0.1f); 
     }
 }
 

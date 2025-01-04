@@ -17,7 +17,6 @@ public class Bounds_Spring : MonoBehaviour
                 // 점프 높이를 bounceForce로 직접 설정
                 playerRb.velocity = new Vector3(playerRb.velocity.x, bounceForce, playerRb.velocity.z);
 
-                Debug.Log("Bounce!");
             }
         }
     }
