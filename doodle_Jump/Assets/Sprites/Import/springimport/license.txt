@@ -1,0 +1,11 @@
+Model Information:
+* title:	Shock Spring
+* source:	https://sketchfab.com/3d-models/shock-spring-c6fb872e5b74483ab11d938c67e06a90
+* author:	MakerBot Industries (https://sketchfab.com/makerbotindustries)
+
+Model License:
+* license type:	CC-BY-NC-ND-4.0 (http://creativecommons.org/licenses/by-nc-nd/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions can not be distributed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Shock Spring" (https://sketchfab.com/3d-models/shock-spring-c6fb872e5b74483ab11d938c67e06a90) by MakerBot Industries (https://sketchfab.com/makerbotindustries) licensed under CC-BY-NC-ND-4.0 (http://creativecommons.org/licenses/by-nc-nd/4.0/)
